@@ -14,7 +14,7 @@ function Card(props) {
             />
 
             <div className="bg-white p-4 sm:p-6 dark:bg-gray-900 mb-4 rounded-xl">
-                <time datetime="2022-10-10" className="block text-xs text-gray-500 dark:text-gray-400">
+                <time  className="block text-xs text-gray-500 dark:text-gray-400">
                 {Date().toLocaleString()}
                 </time>
 
