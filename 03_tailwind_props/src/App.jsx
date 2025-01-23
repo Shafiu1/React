@@ -11,11 +11,12 @@ function App() {
     age:21
   }
   return (
-    <>
+    <div className="bg-gray-800 justify-center pb-4  justify-center">
       {/* <h1 className="bg-green-400 text-black p-4 rounded-xl mb-4">Shafiul Alam</h1> */}
       <Card username="Rasel" btnText="Click"/>
+      <div className='bg-green-500 w-10 h-6 rounded-lg pl-2 pr-2 '>Test</div>
       <Card username="Shafiul" btnText="visit me"/>
-    </>
+    </div>
   )
 }
 
