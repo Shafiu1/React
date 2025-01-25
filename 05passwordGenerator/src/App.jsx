@@ -1,4 +1,4 @@
-import { useState, useCallback,useEffect } from 'react'
+import { useState, useCallback,useEffect, useRef } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
@@ -8,7 +8,10 @@ function App() {
   const [numAllow, setNumAllow] = useState(false);
   const [charAllow, setCharAllow] = useState(false);
   const [password, setPassword] = useState("");
+  const [copyText, setCopyText] = useState("Copy");
 
+  //useRef hook
+  const passwordRef = useRef()
 
   //read useCallback documentation of react..
   const passwordGenerator = useCallback(()=>{
@@ -22,6 +25,20 @@ function App() {
       }
       setPassword(pass);
   },[length,numAllow,charAllow,setPassword])
+
+  const copyPasswordToClipboard = useCallback(()=>{
+    passwordRef.current?.select();
+    passwordRef.current?.setSelectionRange(0,100);
+    window.navigator.clipboard.writeText(password);
+    
+    //extra for showing copied text. Still some bug
+
+    // if(copyText=='Copy'){
+    //   setCopyText("Copied")
+    // }else{
+    //   setCopyText('Copy')
+    // }
+  },[password])
 
   useEffect(()=>{
     passwordGenerator();
@@ -38,9 +55,12 @@ function App() {
           className='outline-none w-full py-1 px-3'
           placeholder='password'
           readOnly
+          ref = {passwordRef}
         />
-        <button className='ouline-none bg-blue-700 text-white px-3 py-0.5 shrink-0'>
-          copy
+        <button 
+        onClick={copyPasswordToClipboard}
+        className='ouline-none bg-blue-700 text-white px-3 py-0.5 shrink-0'>
+          {copyText}
         </button>
       </div>
       <div className='flex text-sm gap-x-2'>
