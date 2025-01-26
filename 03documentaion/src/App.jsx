@@ -1,10 +1,15 @@
 import React from 'react'
-import {Profile,Gallery} from './components/Gallery.jsx'
+import Profile from './components/Profile.jsx'
+import Gallery from './components/Gallery.jsx'
+import JavasInJSX from './components/JavasInJSX.jsx';
+import TodoList from './components/TodoList.jsx';
 export default function App() {
   return (
-    <div>
+    <div className="ml">
       <Gallery/>
       <Profile/>
+      <JavasInJSX/>
+      <TodoList/>
     </div>
   );
 }
