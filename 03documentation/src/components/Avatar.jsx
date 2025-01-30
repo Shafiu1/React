@@ -1,12 +1,15 @@
-function Avatar() {
+import { getImageUrl } from "./Utils.jsx";
+export default function Avatar(props) {
   return (
-    <img
-      className="avatar"
-      src="https://i.imgur.com/1bX5QH6.jpg"
-      alt="Lin Lanying"
-      width={100}
-      height={100}
-    />
+    <>
+      <p>{props.person.name}</p>
+      <img
+        className="rounded-2xl"
+        src={getImageUrl(props.person)}
+        alt={props.person.name}
+        width={props.size}
+        height={props.size}
+      />
+    </>
   );
 }
-export default Avatar();
